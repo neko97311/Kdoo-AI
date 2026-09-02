@@ -1,0 +1,27 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "<TEAM_ID>.com.kdoo.app"
+        ],
+        "components": [
+          {
+            "/": "/share",
+            "comment": "Match any /share/{id} path — opens the app directly without the browser confirmation prompt."
+          },
+          {
+            "/": "/share/*",
+            "comment": "Match any /share/{anything} path — same intent as the prefix above; the trailing wildcard is required to capture the {id} segment."
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "<TEAM_ID>.com.kdoo.app"
+    ]
+  }
+}

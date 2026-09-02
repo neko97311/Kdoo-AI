@@ -1,0 +1,9 @@
+{
+  "platforms": ["android", "ios"],
+  "android": {
+    "modules": ["expo.modules.kdoosignature.KdooSignatureModule"]
+  },
+  "ios": {
+    "modules": ["KdooSignatureModule"]
+  }
+}

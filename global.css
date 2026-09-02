@@ -1,0 +1,106 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+/* Use prefers-color-scheme so Native's colorScheme observable (from Appearance.setColorScheme
+   and react-native-css colorScheme.set) correctly triggers the dark: variant.
+   Class-based selectors (&:where(.dark, .dark *)) compile to container queries on native,
+   which require parent container registration that isn't set up. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+@theme {
+  --color-aura-primary: #1D4ED8;
+  --color-aura-on-primary: #FFFFFF;
+  --color-aura-primary-container: #1D4ED8;
+  --color-aura-on-primary-container: #FFFFFF;
+  --color-aura-secondary: #2563EB;
+  --color-aura-secondary-container: #2563EB;
+  --color-aura-tertiary: #A78BFA;
+  --color-aura-surface: #FFFFFF;
+  --color-aura-surface-container: #F7F8FA;
+  --color-aura-surface-container-high: #F0F1F3;
+  --color-aura-surface-container-highest: #FFFFFF;
+  --color-aura-on-surface: #1D2129;
+  --color-aura-on-surface-variant: #4E5969;
+  --color-aura-outline: #86909C;
+  --color-aura-outline-variant: #E5E6EB;
+  --color-aura-error: #F53F3F;
+  --color-aura-error-container: #FFECEC;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 1.25;
+  --text-headline-lg--font-weight: 700;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 1.33333;
+  --text-headline-md--font-weight: 600;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 1.4;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.55556;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+  --text-label-md: 14px;
+  --text-label-md--line-height: 1.42857;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 1.33333;
+  --text-label-sm--font-weight: 500;
+
+  --spacing-page: 16px;
+  --spacing-gutter: 12px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 24px;
+
+  --radius-card: 8px;
+  --radius-input: 24px;
+  --radius-full: 9999px;
+
+  /* Voice-call page brand palette — soft pink → light blue (light mode)
+     Mirrors LIGHT_CALL in hooks/useColors.ts */
+  --color-call-gradient-from: #fce4ec;
+  --color-call-gradient-to: #e3f2fd;
+  --color-call-button-bg: rgba(255, 255, 255, 0.8);
+  --color-call-button-icon: #333333;
+  --color-call-pill-bg: rgba(255, 255, 255, 0.6);
+  --color-call-status-text: #666666;
+  --color-call-footer-text: #aaaaaa;
+  --color-call-avatar-bg: #bbdefb;
+  --color-call-hangup-bg: #ffcdd2;
+  --color-call-hangup-icon: #F53F3F;
+}
+
+/* Dark mode overrides for aura design tokens + voice-call palette */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-aura-surface: #0f1117;
+    --color-aura-surface-container: #1a1b1e;
+    --color-aura-surface-container-high: #222326;
+    --color-aura-surface-container-highest: #2a2b2f;
+    --color-aura-on-surface: #e0e0e0;
+    --color-aura-on-surface-variant: #9CA3AF;
+    --color-aura-outline: #9CA3AF;
+    --color-aura-outline-variant: #2a2b2f;
+    --color-aura-error-container: #3a1010;
+
+    /* Voice-call dark palette — deep indigo → deep navy
+       Mirrors DARK_CALL in hooks/useColors.ts */
+    --color-call-gradient-from: #1a1b2e;
+    --color-call-gradient-to: #16213e;
+    --color-call-button-bg: rgba(255, 255, 255, 0.12);
+    --color-call-button-icon: #f0f0f0;
+    --color-call-pill-bg: rgba(255, 255, 255, 0.08);
+    --color-call-status-text: #b0b0b0;
+    --color-call-footer-text: #6a6a6a;
+    --color-call-avatar-bg: #2c3e50;
+    --color-call-hangup-bg: #4a1a1a;
+    --color-call-hangup-icon: #ff5252;
+  }
+}
